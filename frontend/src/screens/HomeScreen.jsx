@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
-import Product from '../components/Product.js'
+import Product from '../components/Product.jsx'
 import { useGetProductsQuery } from '../slices/productApiSlice.js'
 
 const HomeScreen = () => {
