@@ -31,8 +31,9 @@ const cartSlice = createSlice({
 
 			return updateCart(state)
 		},
+		resetCart: (state, action) => (state = initialState),
 	},
 })
 
 export default cartSlice.reducer
-export const { addToCart, removeFromCart } = cartSlice.actions
+export const { addToCart, removeFromCart, resetCart } = cartSlice.actions
