@@ -61,7 +61,7 @@ const OrderScreen = () => {
 				refetch()
 				toast.success('Payment Successful')
 			} catch (error) {
-				toast.error(error?.data?.message || error.message)
+				toast.error(error?.data?.message || error.error)
 			}
 		})
 	}
