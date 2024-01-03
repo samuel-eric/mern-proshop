@@ -3,6 +3,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { Table, Button, Row, Col } from 'react-bootstrap'
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 import Message from '../../components/Message'
 import Loader from '../../components/Loader'
 import {
@@ -20,12 +21,14 @@ const ProductListScreen = () => {
 		console.log(id)
 	}
 
+	const navigate = useNavigate()
+
 	const createProductHandler = async () => {
 		if (window.confirm('Are you sure you want to create a new product?')) {
 			try {
-				await createProduct()
+				const { _id } = await createProduct().unwrap()
 				toast.success('Product successfully created')
-				refetch()
+				navigate(`/admin/product/${_id}/edit`)
 			} catch (error) {
 				toast.error(error?.data?.message || error.error)
 			}
